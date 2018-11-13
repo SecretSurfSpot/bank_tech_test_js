@@ -34,10 +34,9 @@ describe('Features Spec', function() {
       it('is written to by makeDeposit', function() {
         bankAccount.makeDeposit(1000);
         bankAccount.makeDeposit(2000);
-        bankAccount.makeWithdrawal(500);
-        //expect(bankAccount.transactions[].length).toEqual(3);
-        expect(bankAccount.transactions).toBeArrayOfSize(3);
-
+        expect(bankAccount.transaction.length).toEqual(2);
+        expect(bankAccount.transaction[0].length).toEqual(3);
+        expect(bankAccount.transaction[1].length).toEqual(3);
       });
     });
 
