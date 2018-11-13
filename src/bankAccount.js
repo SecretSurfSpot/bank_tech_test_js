@@ -17,6 +17,7 @@
   BankAccount.prototype.makeWithdrawal = function (amount) {
     this.balance -= amount;
     console.log('balance after makeWithdrawal() is: ' + this.balance);
+    this.addTransaction(0, amount, this.balance);
   };
 
   BankAccount.prototype.addTransaction = function (credit, debit, balance) {
