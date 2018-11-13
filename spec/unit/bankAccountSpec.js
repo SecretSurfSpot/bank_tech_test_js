@@ -1,14 +1,16 @@
 'use strict';
 
-describe('Bank Account', function() {
+describe('Unit Test', function() {
   var bankAccount;
 
-   beforeEach(function(){
-     bankAccount = new bankAccount();
-   });
+  beforeEach(function(){
+   bankAccount = new BankAccount();
+  });
 
-  it('starts with a balance of zero', function(){
-    expect(bankAccount.balance).toEqual(0);
+  describe('balance', function(){
+    it('starts with a balance of zero', function(){
+      expect(bankAccount.balance).toEqual(0);
+    });
   });
 
 });
