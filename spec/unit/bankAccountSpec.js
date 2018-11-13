@@ -13,4 +13,9 @@ describe('Unit Test', function() {
     });
   });
 
+  describe('makeDeposit', function() {
+    bankAccount.makeDeposit(100);
+    expect(bankAccount.balance).toEqual(100);
+  });
+
 });
