@@ -22,6 +22,14 @@ describe('Features Spec', function() {
       });
     });
 
+    describe('makeWithdrawal', function() {
+      it('should reduce balance by value passed to makeWithdrawal', function(){
+        bankAccount.makeDeposit(1000);
+        bankAccount.makeWithdrawal(200);
+        expect(bankAccount.balance).toEqual(800);
+      });
+    });
+
 
   });
 

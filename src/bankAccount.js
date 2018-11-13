@@ -4,10 +4,12 @@
 
   function BankAccount(balance = 0) {
     this.balance = balance;
+    console.log('balance is initially: ' + this.balance);
   }
 
   BankAccount.prototype.makeDeposit = function (amount) {
     this.balance += amount;
+    console.log('balance after makeDeposit() is: ' + this.balance);
   };
 
   exports.BankAccount = BankAccount;
