@@ -9,6 +9,7 @@
   }
 
   BankAccount.prototype.makeDeposit = function (amount) {
+    this.isNumberPositive(amount);
     this.balance += amount;
     console.log('balance after makeDeposit() is: ' + this.balance);
     this.addTransaction(amount, 0, this.balance);
@@ -24,6 +25,10 @@
     this.transaction.push([Date(), credit, debit, balance]);
     console.log('after addTransaction, transaction[] contains: ' + this.transaction);
     console.log('transactions has: ' + this.transaction.length + ' elements');
+  };
+
+  BankAccount.prototype.isNumberPositive = function (amount) {
+    if (amount <=0) throw new Error('Error: amount must be positive');
   };
 
   exports.BankAccount = BankAccount;

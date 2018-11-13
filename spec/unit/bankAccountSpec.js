@@ -40,4 +40,10 @@ describe('Unit Test', function() {
     });
   });
 
+  describe('isNumberPositive', function(){
+    it('throws an error if a negative number is given', function(){
+      expect(function() { bankAccount.isNumberPositive(-100) }).toThrowError('Error: amount must be positive');
+    });
+  });
+
 });

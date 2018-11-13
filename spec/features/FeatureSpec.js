@@ -51,7 +51,7 @@ describe('Features Spec', function() {
     });
 
     describe('isNumberPositive',function(){
-      it('will return an error is a negative number is given', function(){
+      it('throws an error if a negative value is given', function(){
         expect(function() { bankAccount.makeDeposit(-100) }).toThrowError('Error: amount must be positive');
       });
     });
