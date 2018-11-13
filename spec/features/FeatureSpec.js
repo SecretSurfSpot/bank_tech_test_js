@@ -15,7 +15,7 @@ describe('Features Spec', function() {
       });
     });
 
-    describe('Make Deposit', function(){
+    describe('makeDeposit', function(){
       it('should increase balance by value passed to makeDeposit', function(){
         bankAccount.makeDeposit(100);
         expect(bankAccount.balance).toEqual(100);

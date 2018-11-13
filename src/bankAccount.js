@@ -6,5 +6,9 @@
     this.balance = balance;
   }
 
+  BankAccount.prototype.makeDeposit = function (amount) {
+    this.balance += amount;
+  };
+
   exports.BankAccount = BankAccount;
 })(this);
