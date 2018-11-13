@@ -30,6 +30,17 @@ describe('Features Spec', function() {
       });
     });
 
+    describe('transactionLog', function() {
+      it('is written to by makeDeposit', function() {
+        bankAccount.makeDeposit(1000);
+        bankAccount.makeDeposit(2000);
+        bankAccount.makeWithdrawal(500);
+        //expect(bankAccount.transactions[].length).toEqual(3);
+        expect(bankAccount.transactions).toBeArrayOfSize(3);
+
+      });
+    });
+
 
   });
 
