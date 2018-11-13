@@ -29,4 +29,15 @@ describe('Unit Test', function() {
     });
   });
 
+  describe('addTransaction', function(){
+    it('it stores transaction data in a transaction array', function() {
+      bankAccount.addTransaction(1000, 0, 1000);
+      bankAccount.addTransaction(2000, 0, 3000);
+      console.log('adds transactions: ' + bankAccount.transaction + ' to transaction array');
+      expect(bankAccount.transaction.length).toEqual(2);
+      expect(bankAccount.transaction[0]).toEqual([Date(),1000,0,1000]);
+      expect(bankAccount.transaction[1]).toEqual([Date(),2000,0,3000]);
+    });
+  });
+
 });

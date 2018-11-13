@@ -35,12 +35,12 @@ describe('Features Spec', function() {
         bankAccount.makeDeposit(1000);
         bankAccount.makeDeposit(2000);
         expect(bankAccount.transaction.length).toEqual(2);
-        expect(bankAccount.transaction[0].length).toEqual(3);
-        expect(bankAccount.transaction[1].length).toEqual(3);
+        expect(bankAccount.transaction[0].length).toEqual(4);
+        expect(bankAccount.transaction[1].length).toEqual(4);
+        expect(bankAccount.transaction[1]).toEqual([Date(),2000,0,3000]);
       });
     });
 
 
   });
-
 });

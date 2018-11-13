@@ -21,7 +21,7 @@
   };
 
   BankAccount.prototype.addTransaction = function (credit, debit, balance) {
-    this.transaction.push([credit, debit, this.balance]);
+    this.transaction.push([Date(), credit, debit, balance]);
     console.log('after addTransaction, transaction[] contains: ' + this.transaction);
     console.log('transactions has: ' + this.transaction.length + ' elements');
   };
