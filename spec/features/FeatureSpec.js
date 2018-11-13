@@ -17,8 +17,8 @@ describe('Features Spec', function() {
 
     describe('makeDeposit', function(){
       it('should increase balance by value passed to makeDeposit', function(){
-        bankAccount.makeDeposit(100);
-        expect(bankAccount.balance).toEqual(100);
+        bankAccount.makeDeposit(1000);
+        expect(bankAccount.balance).toEqual(1000);
       });
     });
 
@@ -38,6 +38,15 @@ describe('Features Spec', function() {
         expect(bankAccount.transaction[0].length).toEqual(4);
         expect(bankAccount.transaction[1].length).toEqual(4);
         expect(bankAccount.transaction[1]).toEqual([Date(),2000,0,3000]);
+      });
+
+      it('is written to by makeWithdrawal', function(){
+          bankAccount.makeDeposit(1000);
+          bankAccount.makeWithdrawal(500);
+          expect(bankAccount.transaction.length).toEqual(2);
+          expect(bankAccount.transaction[0].length).toEqual(4);
+          expect(bankAccount.transaction[1].length).toEqual(4);
+          expect(bankAccount.transaction[1]).toEqual([Date(),0,500,500]);
       });
     });
 
