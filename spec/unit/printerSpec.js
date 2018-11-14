@@ -26,4 +26,10 @@ describe('Printer Unit Tests', function() {
     });
   });
 
+  describe('statementHeader', function(){
+    it('returns the statement header', function(){
+      expect(printer.statementHeader()).toEqual('date || credit || debit || balance');
+    });
+  });
+
 });
