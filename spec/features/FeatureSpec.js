@@ -56,6 +56,12 @@ describe('Features Spec', function() {
       });
     });
 
+    describe('isInputANumber', function(){
+      it('throws an error if the input is NaN',function(){
+        expect(function() {bankAccount.makeDeposit('one hundred') }).toThrowError('Error: input must be a number');
+      });
+    });
+
 
   });
 });

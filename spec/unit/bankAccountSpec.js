@@ -46,4 +46,10 @@ describe('Unit Test', function() {
     });
   });
 
+  describe('isInputANumber', function(){
+    it('throws an error if input is NaN', function(){
+      expect(function() { bankAccount.isInputANumber('one hundred') }).toThrowError('Error: input must be a number');
+    });
+  });
+
 });
