@@ -27,5 +27,10 @@
     return statement;
   };
 
+  Printer.prototype.statementHeader = function() {
+    this.header = 'date || credit || debit || balance';
+    return this.header;
+  };
+
   exports.Printer = Printer;
 })(this);
