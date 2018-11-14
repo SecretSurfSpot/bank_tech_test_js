@@ -19,6 +19,24 @@ describe('Unit Test', function() {
       console.log('balance during Unit Test makeDeposit is: ' + bankAccount.balance);
       expect(bankAccount.balance).toEqual(100);
     });
+
+    it('calls isInputANumber', function(){
+      spyOn(bankAccount, 'isInputANumber');
+      bankAccount.makeDeposit('one hundred');
+      expect(bankAccount.isInputANumber).toHaveBeenCalledWith('one hundred');
+    });
+
+    it('calls isNumberPositive', function(){
+      spyOn(bankAccount, 'isNumberPositive');
+      bankAccount.makeDeposit(-100);
+      expect(bankAccount.isNumberPositive).toHaveBeenCalledWith(-100);
+    });
+
+    it('calls addTransaction', function(){
+      spyOn(bankAccount, 'addTransaction');
+      bankAccount.makeDeposit(1000);
+      expect(bankAccount.addTransaction).toHaveBeenCalledWith(1000,0,1000);
+    });
   });
 
   describe('makeWithdrawal', function() {
@@ -26,6 +44,25 @@ describe('Unit Test', function() {
       bankAccount.balance = 1000;
       bankAccount.makeWithdrawal(200);
       expect(bankAccount.balance).toEqual(800);
+    });
+
+    it('calls isInputANumber', function(){
+      spyOn(bankAccount, 'isInputANumber');
+      bankAccount.makeWithdrawal('one hundred');
+      expect(bankAccount.isInputANumber).toHaveBeenCalledWith('one hundred');
+    });
+
+    it('calls isNumberPositive', function(){
+      spyOn(bankAccount, 'isNumberPositive');
+      bankAccount.makeWithdrawal(-100);
+      expect(bankAccount.isNumberPositive).toHaveBeenCalledWith(-100);
+    });
+
+    it('calls addTransaction', function(){
+      spyOn(bankAccount, 'addTransaction');
+      bankAccount.makeDeposit(2000);
+      bankAccount.makeWithdrawal(1000);
+      expect(bankAccount.addTransaction).toHaveBeenCalledWith(0,1000,1000);
     });
   });
 

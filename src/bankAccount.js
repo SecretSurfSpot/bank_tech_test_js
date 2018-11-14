@@ -30,14 +30,14 @@
     console.log('transactions has: ' + this.transaction.length + ' elements');
   };
 
-  BankAccount.prototype.isNumberPositive = function (amount) {
-    if (amount <=0) throw new Error('Error: amount must be positive');
-  };
-
   BankAccount.prototype.isInputANumber = function (amount) {
     console.log('Amount passed to isInputANumber is: ' + amount);
     if (isNaN(amount)) throw new Error('Error: input must be a number');
-  }
+  };
+
+  BankAccount.prototype.isNumberPositive = function (amount) {
+    if (amount <=0) throw new Error('Error: amount must be positive');
+  };
 
   exports.BankAccount = BankAccount;
 })(this);
