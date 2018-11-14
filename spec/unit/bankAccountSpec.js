@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Unit Test', function() {
+describe('Bank Account Unit Tests', function() {
   var bankAccount;
 
   beforeEach(function(){

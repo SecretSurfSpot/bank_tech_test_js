@@ -1,15 +1,15 @@
 'use strict';
 
-describe('Features Spec', function() {
-  var bankAccount;
-
-  beforeEach(function(){
-    bankAccount = new BankAccount();
-  });
+describe('Feature Tests', function() {
 
   describe('Bank Account', function(){
+    var bankAccount;
 
-     describe('balance', function(){
+    beforeEach(function(){
+      bankAccount = new BankAccount();
+    });
+
+    describe('balance', function(){
       it('should start with a balance of zero', function(){
         expect(bankAccount.balance).toEqual(0);
       });
@@ -62,6 +62,22 @@ describe('Features Spec', function() {
       });
     });
 
+  });
+
+  describe('Printer', function(){
+    var printer;
+
+    beforeEach(function(){
+      printer = new Printer();
+    });
+
+    describe('printStatement', function() {
+      it('prints the header at the top', function(){
+        printer.printStatement();
+        expect(printer.printStatement()).toEqual('date || credit || debit || balance');
+      });
+    });
 
   });
+
 });
