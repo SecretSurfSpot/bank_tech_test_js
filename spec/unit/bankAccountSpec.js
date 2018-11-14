@@ -89,6 +89,12 @@ describe('Bank Account Unit Tests', function() {
     });
   });
 
+  describe('getFormattedDate',function(){
+    it('formats date', function() {
+      expect(bankAccount.getFormattedDate()).toEqual('2018/11/14');
+    });
+  });
+
   // describe('printStatement', function(){
   //   var printer;
   //
