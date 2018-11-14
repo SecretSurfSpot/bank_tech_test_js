@@ -65,16 +65,28 @@ describe('Feature Tests', function() {
   });
 
   describe('Printer', function(){
+    var bankAccount;
     var printer;
 
     beforeEach(function(){
+      bankAccount = new BankAccount();
       printer = new Printer();
     });
 
     describe('printStatement', function() {
-      it('prints the header at the top', function(){
-        printer.printStatement();
-        expect(printer.printStatement()).toEqual('date || credit || debit || balance');
+      it('prints the statement', function(){
+        bankAccount.makeDeposit(1000);
+        bankAccount.makeDeposit(2000);
+        bankAccount.makeWithdrawal(500);
+        expect(bankAccount.printStatement(
+          [Date(),1000,0,1000],
+          [Date(),2000,0,3000],
+          [Date(),0,500,2500])).
+          toEqual(
+            'date || credit || debit || balance\n' +
+            `${Date()}` + ' || 0 || 500 || 2500 \n' +
+            `${Date()}` + ' || 2000 || 0 || 3000 \n' +
+            `${Date()}` + ' || 1000 || 0 || 1000 ');
       });
     });
 

@@ -89,4 +89,20 @@ describe('Bank Account Unit Tests', function() {
     });
   });
 
+  // describe('printStatement', function(){
+  //   var printer;
+  //
+  //   beforeEach(function(){
+  //    printer = new Printer();
+  //    bankAccount.addTransaction(1000, 0, 1000);
+  //    bankAccount.addTransaction(2000, 0, 3000);
+  //    bankAccount.makeWithdrawal(1000);
+  //    let transaction = '[Date(),1000,0,1000],[Date(),2000,0,3000],[Date(),0,500,2500]'
+  //   });
+  //
+  //   it('calls the Printer.printStatement function, which prints the statement', function(){
+  //     expect(bankAccount.printStatement(transaction)).toEqual('date || credit || debit || balance\nDate() || 1000 || 0 || 1000');
+  //   })
+  // })
+
 });

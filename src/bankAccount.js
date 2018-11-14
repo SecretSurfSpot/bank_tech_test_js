@@ -2,9 +2,10 @@
 
 (function(exports) {
 
-  function BankAccount(balance = 0, transaction = []) {
+  function BankAccount(balance = 0, transaction = [], printer = new Printer) {
     this.balance = balance;
     this.transaction = transaction;
+    this.printer = printer;
     console.log('balance is initially: ' + this.balance);
   }
 
@@ -37,6 +38,10 @@
 
   BankAccount.prototype.isNumberPositive = function (amount) {
     if (amount <=0) throw new Error('Error: amount must be positive');
+  };
+
+  BankAccount.prototype.printStatement = function (transaction) {
+    return this.printer.printStatement(this.transaction);
   };
 
   exports.BankAccount = BankAccount;
