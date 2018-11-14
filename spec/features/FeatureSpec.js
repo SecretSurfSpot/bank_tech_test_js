@@ -1,6 +1,11 @@
 'use strict';
 
 describe('Feature Tests', function() {
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth()+1;
+  var day = today.getDate();
+  var formattedDate = year + '/' + month + '/' + day;
 
   describe('Bank Account', function(){
     var bankAccount;
@@ -37,7 +42,7 @@ describe('Feature Tests', function() {
         expect(bankAccount.transaction.length).toEqual(2);
         expect(bankAccount.transaction[0].length).toEqual(4);
         expect(bankAccount.transaction[1].length).toEqual(4);
-        expect(bankAccount.transaction[1]).toEqual([Date(),2000,0,3000]);
+        expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,2000,0,3000]);
       });
 
       it('is written to by makeWithdrawal', function(){
@@ -46,7 +51,7 @@ describe('Feature Tests', function() {
           expect(bankAccount.transaction.length).toEqual(2);
           expect(bankAccount.transaction[0].length).toEqual(4);
           expect(bankAccount.transaction[1].length).toEqual(4);
-          expect(bankAccount.transaction[1]).toEqual([Date(),0,500,500]);
+          expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,0,500,500]);
       });
     });
 
@@ -79,14 +84,14 @@ describe('Feature Tests', function() {
         bankAccount.makeDeposit(2000);
         bankAccount.makeWithdrawal(500);
         expect(bankAccount.printStatement(
-          [Date(),1000,0,1000],
-          [Date(),2000,0,3000],
-          [Date(),0,500,2500])).
+          [`${formattedDate}`,1000,0,1000],
+          [`${formattedDate}`,2000,0,3000],
+          [`${formattedDate}`,0,500,2500])).
           toEqual(
             'date || credit || debit || balance\n' +
-            `${Date()}` + ' || 0 || 500 || 2500 \n' +
-            `${Date()}` + ' || 2000 || 0 || 3000 \n' +
-            `${Date()}` + ' || 1000 || 0 || 1000 ');
+            `${formattedDate}` + ' || 0 || 500 || 2500 \n' +
+            `${formattedDate}` + ' || 2000 || 0 || 3000 \n' +
+            `${formattedDate}` + ' || 1000 || 0 || 1000 ');
       });
     });
 
