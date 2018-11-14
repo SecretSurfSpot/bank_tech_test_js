@@ -47,7 +47,17 @@
     return this.printer.printStatement(this.transaction);
   };
 
+  BankAccount.prototype.getFormattedDate = function () {
+    var today = new Date();
 
+    var year = today.getFullYear();
+    var month = today.getMonth()+1;
+    var day = today.getDate();
+
+    var formattedDate = year + '/' + month + '/' + day;
+    console.log('formattedDate is: ' + formattedDate);
+    return formattedDate;
+  };
 
   exports.BankAccount = BankAccount;
 })(this);
