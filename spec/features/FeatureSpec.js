@@ -78,7 +78,6 @@ describe('Feature Tests', function() {
       printer = new Printer();
     });
 
-
     describe('printStatement', function() {
       it('prints the statement', function(){
         bankAccount.makeDeposit(1000);

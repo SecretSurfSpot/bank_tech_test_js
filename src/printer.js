@@ -6,8 +6,8 @@
     this.header = header;
   }
 
-  Printer.prototype.printStatement = function(transactionsLog) {
-    var transactions = transactionsLog;
+  Printer.prototype.printStatement = function(transactionLog) {
+    var transactions = transactionLog;
     transactions.reverse();
     let statement = this.statementHeader();
 
@@ -19,10 +19,16 @@
         if (j === 0) {
           statement = statement.concat(`${transaction[j]} `);
         } else {
-          statement = statement.concat(`|| ${transaction[j]} `);
+          if (transaction[j] === '') {
+            var statementInput = ''
+          } else {
+            statementInput = transaction[j].toFixed(2);
+          }
+          statement = statement.concat(`|| ${statementInput} `);
         };
       };
     };
+
     return statement;
   };
 
