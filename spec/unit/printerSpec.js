@@ -15,14 +15,14 @@ describe('Printer Unit Tests', function() {
   describe('printStatement', function() {
     it('prints the statement', function(){
       expect(printer.printStatement(
-        [[`${formattedDate}`,1000,0,1000],
-        [`${formattedDate}`,2000,0,3000],
-        [`${formattedDate}`,0,500,2500]])).
+        [[`${formattedDate}`,1000,'',1000],
+        [`${formattedDate}`,2000,'',3000],
+        [`${formattedDate}`,'',500,2500]])).
         toEqual(
           'date || credit || debit || balance\n' +
-          `${formattedDate}` + ' || 0 || 500 || 2500 \n' +
-          `${formattedDate}` + ' || 2000 || 0 || 3000 \n' +
-          `${formattedDate}` + ' || 1000 || 0 || 1000 ');
+          `${formattedDate}` + ' ||  || 500 || 2500 \n' +
+          `${formattedDate}` + ' || 2000 ||  || 3000 \n' +
+          `${formattedDate}` + ' || 1000 ||  || 1000 ');
     });
   });
 
