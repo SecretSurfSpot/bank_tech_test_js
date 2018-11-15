@@ -39,7 +39,7 @@ To test the application:
 - `Bank_Acc = new BankAccount();` *creates a new BankAccount object*
 - `Bank_Acc.makeDeposit(1000);` *deposits £1000*
 - `Bank_Acc.makeDeposit(2000);` *deposits £2000*
-- `Bank_Acc.makeWithdrawal(2000);` *withdraws £1000*
+- `Bank_Acc.makeWithdrawal(500);` *withdraws £500*
 - `Bank_Acc.printStatement` *prints a bank statement, as per the format shown in the Acceptance Criteria section*
 
 The above commands result in the output shown in the screenshot below:
@@ -66,7 +66,7 @@ Two main objects (constructor functions):
        |
        |                                   
 ╔═════════════╗     
-║             ║ public functions:  makeDeposit, makeWithdrawal, printStatement
+║             ║ public functions:  makeDeposit, makeWithdrawal & printStatement
 ║ BankAccount ║                  
 ║(constructor)║ private functions: _addTransaction, _isInputANumber,            
 ╚═════════════╝                    _isNumberPositive & _getFormattedDate    
@@ -76,7 +76,7 @@ Two main objects (constructor functions):
 ╔═════════════╗
 ║             ║ public function:  printStatement
 ║   Printer   ║                  
-║(constructor)║ private functions: statementHeader
+║(constructor)║ private function: statementHeader
 ╚═════════════╝            
 
 ```
