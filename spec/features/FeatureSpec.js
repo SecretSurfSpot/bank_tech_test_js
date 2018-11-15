@@ -1,11 +1,7 @@
 'use strict';
 
 describe('Feature Tests', function() {
-  var today = new Date();
-  var year = today.getFullYear();
-  var month = today.getMonth()+1;
-  var day = today.getDate();
-  var formattedDate = day + '/' + month + '/' + year;
+  var date  = new Date().toLocaleDateString('en-GB');
 
   describe('Bank Account', function(){
     var bankAccount;
@@ -42,7 +38,7 @@ describe('Feature Tests', function() {
         expect(bankAccount.transaction.length).toEqual(2);
         expect(bankAccount.transaction[0].length).toEqual(4);
         expect(bankAccount.transaction[1].length).toEqual(4);
-        expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,2000,'',3000]);
+        expect(bankAccount.transaction[1]).toEqual([`${date}`,2000,'',3000]);
       });
 
       it('is written to by makeWithdrawal', function(){
@@ -51,7 +47,7 @@ describe('Feature Tests', function() {
           expect(bankAccount.transaction.length).toEqual(2);
           expect(bankAccount.transaction[0].length).toEqual(4);
           expect(bankAccount.transaction[1].length).toEqual(4);
-          expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,'',500,500]);
+          expect(bankAccount.transaction[1]).toEqual([`${date}`,'',500,500]);
       });
     });
 
@@ -86,9 +82,9 @@ describe('Feature Tests', function() {
         expect(bankAccount.printStatement()).
           toEqual(
             'date || credit || debit || balance\n' +
-            `${formattedDate}` + ' ||  || 500.00 || 2500.00 \n' +
-            `${formattedDate}` + ' || 2000.00 ||  || 3000.00 \n' +
-            `${formattedDate}` + ' || 1000.00 ||  || 1000.00 ');
+            `${date}` + ' ||  || 500.00 || 2500.00 \n' +
+            `${date}` + ' || 2000.00 ||  || 3000.00 \n' +
+            `${date}` + ' || 1000.00 ||  || 1000.00 ');
       });
     });
 

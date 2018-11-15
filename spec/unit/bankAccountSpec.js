@@ -2,12 +2,7 @@
 
 describe('Bank Account Unit Tests', function() {
   var bankAccount;
-
-  var today = new Date();
-  var year = today.getFullYear();
-  var month = today.getMonth()+1;
-  var day = today.getDate();
-  var formattedDate = day + '/' + month + '/' + year;
+  var date  = new Date().toLocaleDateString('en-GB');
 
   beforeEach(function(){
    bankAccount = new BankAccount();
@@ -22,7 +17,6 @@ describe('Bank Account Unit Tests', function() {
   describe('makeDeposit', function() {
     it('increases the balance by value passed to makeDeposit', function(){
       bankAccount.makeDeposit(100);
-      console.log('balance during Unit Test makeDeposit is: ' + bankAccount.balance);
       expect(bankAccount.balance).toEqual(100);
     });
 
@@ -77,10 +71,9 @@ describe('Bank Account Unit Tests', function() {
     it('it stores transaction data in a transaction[] array', function() {
       bankAccount.addTransaction(1000, '', 1000);
       bankAccount.addTransaction(2000, '', 3000);
-      console.log('adds transactions: ' + bankAccount.transaction + ' to transaction array');
       expect(bankAccount.transaction.length).toEqual(2);
-      expect(bankAccount.transaction[0]).toEqual([`${formattedDate}`,1000,'',1000]);
-      expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,2000,'',3000]);
+      expect(bankAccount.transaction[0]).toEqual([`${date}`,1000,'',1000]);
+      expect(bankAccount.transaction[1]).toEqual([`${date}`,2000,'',3000]);
     });
   });
 
@@ -98,7 +91,7 @@ describe('Bank Account Unit Tests', function() {
 
   describe('getFormattedDate',function(){
     it('formats date', function() {
-      expect(bankAccount.getFormattedDate()).toEqual(`${formattedDate}`);
+      expect(bankAccount.getFormattedDate()).toEqual(`${date}`);
     });
   });
 

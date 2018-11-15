@@ -13,7 +13,6 @@
     this.isInputANumber(amount);
     this.isNumberPositive(amount);
     this.balance += amount;
-    console.log('balance after makeDeposit() is: ' + this.balance);
     this.addTransaction(amount, '', this.balance);
   };
 
@@ -21,18 +20,15 @@
     this.isInputANumber(amount);
     this.isNumberPositive(amount);
     this.balance -= amount;
-    console.log('balance after makeWithdrawal() is: ' + this.balance);
     this.addTransaction('', amount, this.balance);
   };
 
   BankAccount.prototype.addTransaction = function (credit, debit, balance) {
     this.date = this.getFormattedDate();
     this.transaction.push([this.date, credit, debit, balance]);
-    console.log('after addTransaction, transaction[] contains: ' + this.transaction);
   };
 
   BankAccount.prototype.isInputANumber = function (amount) {
-    console.log('Amount passed to isInputANumber is: ' + amount);
     if (isNaN(amount)) throw new Error('Error: input must be a number');
   };
 
@@ -45,13 +41,7 @@
   };
 
   BankAccount.prototype.getFormattedDate = function () {
-    var today = new Date();
-
-    var year = today.getFullYear();
-    var month = today.getMonth()+1;
-    var day = today.getDate();
-
-    var formattedDate = day + '/' + month + '/' + year;
+    var formattedDate  = new Date().toLocaleDateString('en-GB');
     return formattedDate;
   };
 
