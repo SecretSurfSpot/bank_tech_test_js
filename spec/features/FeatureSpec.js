@@ -78,15 +78,13 @@ describe('Feature Tests', function() {
       printer = new Printer();
     });
 
+
     describe('printStatement', function() {
       it('prints the statement', function(){
         bankAccount.makeDeposit(1000);
         bankAccount.makeDeposit(2000);
         bankAccount.makeWithdrawal(500);
-        expect(bankAccount.printStatement(
-          [`${formattedDate}`,1000,'',1000],
-          [`${formattedDate}`,2000,'',3000],
-          [`${formattedDate}`,'',500,2500])).
+        expect(bankAccount.printStatement()).
           toEqual(
             'date || credit || debit || balance\n' +
             `${formattedDate}` + ' ||  || 500 || 2500 \n' +

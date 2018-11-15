@@ -40,7 +40,7 @@
     if (amount <=0) throw new Error('Error: amount must be positive');
   };
 
-  BankAccount.prototype.printStatement = function (transaction) {
+  BankAccount.prototype.printStatement = function () {
     return this.printer.printStatement(this.transaction);
   };
 
