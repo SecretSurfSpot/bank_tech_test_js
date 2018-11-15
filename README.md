@@ -44,7 +44,7 @@ To test the application:
 
 The above commands result in the output shown in the screenshot below:
 
-![https://github.com/SecretSurfSpot/bank_tech_test_js/blob/master/images/Screen%20Shot%202018-11-15%20at%2014.58.34.png]()
+![Chrome Console Screenshot](https://github.com/SecretSurfSpot/bank_tech_test_js/blob/master/images/Screen%20Shot%202018-11-15%20at%2014.58.34.png)
 
 ## Domain Model
 
