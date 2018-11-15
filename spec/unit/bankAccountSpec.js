@@ -3,6 +3,12 @@
 describe('Bank Account Unit Tests', function() {
   var bankAccount;
 
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth()+1;
+  var day = today.getDate();
+  var formattedDate = year + '/' + month + '/' + day;
+
   beforeEach(function(){
    bankAccount = new BankAccount();
   });
@@ -35,7 +41,7 @@ describe('Bank Account Unit Tests', function() {
     it('calls addTransaction', function(){
       spyOn(bankAccount, 'addTransaction');
       bankAccount.makeDeposit(1000);
-      expect(bankAccount.addTransaction).toHaveBeenCalledWith(1000,0,1000);
+      expect(bankAccount.addTransaction).toHaveBeenCalledWith(1000,'',1000);
     });
   });
 
@@ -62,17 +68,11 @@ describe('Bank Account Unit Tests', function() {
       spyOn(bankAccount, 'addTransaction');
       bankAccount.makeDeposit(2000);
       bankAccount.makeWithdrawal(1000);
-      expect(bankAccount.addTransaction).toHaveBeenCalledWith(0,1000,1000);
+      expect(bankAccount.addTransaction).toHaveBeenCalledWith('',1000,1000);
     });
   });
 
   describe('addTransaction', function(){
-
-      var today = new Date();
-      var year = today.getFullYear();
-      var month = today.getMonth()+1;
-      var day = today.getDate();
-      var formattedDate = year + '/' + month + '/' + day;
 
     it('it stores transaction data in a transaction[] array', function() {
       bankAccount.addTransaction(1000, 0, 1000);
@@ -98,24 +98,8 @@ describe('Bank Account Unit Tests', function() {
 
   describe('getFormattedDate',function(){
     it('formats date', function() {
-      expect(bankAccount.getFormattedDate()).toEqual('2018/11/14');
+      expect(bankAccount.getFormattedDate()).toEqual(`${formattedDate}`);
     });
   });
-
-  // describe('printStatement', function(){
-  //   var printer;
-  //
-  //   beforeEach(function(){
-  //    printer = new Printer();
-  //    bankAccount.addTransaction(1000, 0, 1000);
-  //    bankAccount.addTransaction(2000, 0, 3000);
-  //    bankAccount.makeWithdrawal(1000);
-  //    let transaction = '[Date(),1000,0,1000],[Date(),2000,0,3000],[Date(),0,500,2500]'
-  //   });
-  //
-  //   it('calls the Printer.printStatement function, which prints the statement', function(){
-  //     expect(bankAccount.printStatement(transaction)).toEqual('date || credit || debit || balance\nDate() || 1000 || 0 || 1000');
-  //   })
-  // })
 
 });

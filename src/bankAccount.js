@@ -7,7 +7,6 @@
     this.transaction = transaction;
     this.printer = printer;
     this.date = date;
-    console.log('balance is initially: ' + this.balance);
   }
 
   BankAccount.prototype.makeDeposit = function (amount) {
@@ -15,7 +14,7 @@
     this.isNumberPositive(amount);
     this.balance += amount;
     console.log('balance after makeDeposit() is: ' + this.balance);
-    this.addTransaction(amount, 0, this.balance);
+    this.addTransaction(amount, '', this.balance);
   };
 
   BankAccount.prototype.makeWithdrawal = function (amount) {
@@ -23,15 +22,13 @@
     this.isNumberPositive(amount);
     this.balance -= amount;
     console.log('balance after makeWithdrawal() is: ' + this.balance);
-    this.addTransaction(0, amount, this.balance);
+    this.addTransaction('', amount, this.balance);
   };
 
   BankAccount.prototype.addTransaction = function (credit, debit, balance) {
     this.date = this.getFormattedDate();
-    console.log('this.date is: ' + this.date);
     this.transaction.push([this.date, credit, debit, balance]);
     console.log('after addTransaction, transaction[] contains: ' + this.transaction);
-    console.log('transactions has: ' + this.transaction.length + ' elements');
   };
 
   BankAccount.prototype.isInputANumber = function (amount) {
@@ -55,7 +52,6 @@
     var day = today.getDate();
 
     var formattedDate = year + '/' + month + '/' + day;
-    console.log('formattedDate is: ' + formattedDate);
     return formattedDate;
   };
 
