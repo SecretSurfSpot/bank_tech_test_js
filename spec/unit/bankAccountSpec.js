@@ -8,12 +8,6 @@ describe('Bank Account Unit Tests', function() {
    bankAccount = new BankAccount();
   });
 
-  describe('balance', function(){
-    it('starts with a balance of zero', function(){
-      expect(bankAccount.balance).toEqual(0);
-    });
-  });
-
   describe('makeDeposit', function() {
     it('increases the balance by value passed to makeDeposit', function(){
       bankAccount.makeDeposit(100);

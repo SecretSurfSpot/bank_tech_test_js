@@ -10,12 +10,6 @@ describe('Feature Tests', function() {
       bankAccount = new BankAccount();
     });
 
-    describe('balance', function(){
-      it('should start with a balance of zero', function(){
-        expect(bankAccount.balance).toEqual(0);
-      });
-    });
-
     describe('makeDeposit', function(){
       it('should increase balance by value passed to makeDeposit', function(){
         bankAccount.makeDeposit(1000);
