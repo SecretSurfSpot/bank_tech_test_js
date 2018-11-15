@@ -40,11 +40,11 @@ To test the application:
 - `Bank_Acc.makeDeposit(1000);` *deposits £1000*
 - `Bank_Acc.makeDeposit(2000);` *deposits £2000*
 - `Bank_Acc.makeWithdrawal(500);` *withdraws £500*
-- `Bank_Acc.printStatement` *prints a bank statement, as per the format shown in the Acceptance Criteria section*
+- `Bank_Acc.printStatement` *prints a bank statement, as per the format shown in the Acceptance Criteria section (and screenshot below)*
 
 The above commands result in the output shown in the screenshot below:
 
-![Chrome Console screenshot]()
+![https://github.com/SecretSurfSpot/bank_tech_test_js/blob/master/images/Screen%20Shot%202018-11-15%20at%2014.58.34.png]()
 
 ## Domain Model
 
@@ -53,7 +53,7 @@ The model below illustrates the high-level structure of the application.
 Two main objects (constructor functions):
 
 1. **BankAccount:** Takes inputs for both deposit and withdrawal amounts, keeps track of the balance and also maintains the transaction log
-2. **Printer:** Takes the transactions as in input (from the BankAccount constructor function's function: BankAccount.printStatement()), formats it then prints it
+2. **Printer:** Takes the transactions as input (from the BankAccount constructor function's function: BankAccount.printStatement()), formats it then prints it
 
 ```
     User
