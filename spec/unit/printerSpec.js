@@ -6,7 +6,7 @@ describe('Printer Unit Tests', function() {
   var year = today.getFullYear();
   var month = today.getMonth()+1;
   var day = today.getDate();
-  var formattedDate = year + '/' + month + '/' + day;
+  var formattedDate = day + '/' + month + '/' + year;
 
   beforeEach(function(){
     printer = new Printer();

@@ -51,7 +51,7 @@
     var month = today.getMonth()+1;
     var day = today.getDate();
 
-    var formattedDate = year + '/' + month + '/' + day;
+    var formattedDate = day + '/' + month + '/' + year;
     return formattedDate;
   };
 
