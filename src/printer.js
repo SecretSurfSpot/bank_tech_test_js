@@ -9,7 +9,7 @@
   Printer.prototype.printStatement = function(transactionLog) {
     var transactions = transactionLog;
     transactions.reverse();
-    let statement = this.statementHeader();
+    let statement = this._statementHeader();
 
     for(var i = 0; i < transactions.length; i++) {
       var transaction = transactions[i];
@@ -32,7 +32,7 @@
     return statement;
   };
 
-  Printer.prototype.statementHeader = function() {
+  Printer.prototype._statementHeader = function() {
     this.header = 'date || credit || debit || balance';
     return this.header;
   };

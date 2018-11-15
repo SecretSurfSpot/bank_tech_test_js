@@ -22,9 +22,9 @@ describe('Printer Unit Tests', function() {
     });
   });
 
-  describe('statementHeader', function(){
+  describe('_statementHeader', function(){
     it('returns the statement header', function(){
-      expect(printer.statementHeader()).toEqual('date || credit || debit || balance');
+      expect(printer._statementHeader()).toEqual('date || credit || debit || balance');
     });
   });
 
