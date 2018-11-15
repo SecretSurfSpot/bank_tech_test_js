@@ -75,12 +75,12 @@ describe('Bank Account Unit Tests', function() {
   describe('addTransaction', function(){
 
     it('it stores transaction data in a transaction[] array', function() {
-      bankAccount.addTransaction(1000, 0, 1000);
-      bankAccount.addTransaction(2000, 0, 3000);
+      bankAccount.addTransaction(1000, '', 1000);
+      bankAccount.addTransaction(2000, '', 3000);
       console.log('adds transactions: ' + bankAccount.transaction + ' to transaction array');
       expect(bankAccount.transaction.length).toEqual(2);
-      expect(bankAccount.transaction[0]).toEqual([`${formattedDate}`,1000,0,1000]);
-      expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,2000,0,3000]);
+      expect(bankAccount.transaction[0]).toEqual([`${formattedDate}`,1000,'',1000]);
+      expect(bankAccount.transaction[1]).toEqual([`${formattedDate}`,2000,'',3000]);
     });
   });
 

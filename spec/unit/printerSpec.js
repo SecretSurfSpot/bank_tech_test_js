@@ -15,9 +15,9 @@ describe('Printer Unit Tests', function() {
   describe('printStatement', function() {
     it('prints the statement', function(){
       expect(printer.printStatement(
-        [[`${formattedDate}`,'1000.00','','1000.00'],
-        [`${formattedDate}`,'2000.00','','3000.00'],
-        [`${formattedDate}`,'','500.00','2500.00']])).
+        [[`${formattedDate}`,1000,'',1000],
+        [`${formattedDate}`,2000,'',3000],
+        [`${formattedDate}`,'',500,2500]])).
         toEqual(
           'date || credit || debit || balance\n' +
           `${formattedDate}` + ' ||  || 500.00 || 2500.00 \n' +
