@@ -25,9 +25,10 @@ describe('Bank Account Unit Tests', function() {
 
   describe('printStatement', function() {
     it('prints the statement', function() {
-        bankAccount.makeDeposit(1000);
-        bankAccount.makeDeposit(2000);
-        bankAccount.makeWithdrawal(500);
+      bankAccount.transaction =
+      [[`${date}`,1000,'',1000],
+      [`${date}`,2000,'',3000],
+      [`${date}`,'',500,2500]];
         expect(bankAccount.printStatement()).
           toEqual(
             'date || credit || debit || balance\n' +
