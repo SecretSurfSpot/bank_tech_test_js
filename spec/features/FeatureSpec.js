@@ -54,7 +54,6 @@ describe('Feature Tests', function() {
       });
     });
 
-
   });
 
   describe('Printer', function(){
