@@ -15,6 +15,15 @@ describe('Feature Tests', function() {
         bankAccount.makeDeposit(1000);
         expect(bankAccount.balance).toEqual(1000);
       });
+
+      it('throws an error if the input is NaN',function(){
+        expect(function() { bankAccount.makeDeposit('one hundred') }).toThrowError('Error: input must be a number');
+      });
+
+      it('throws an error if a negative value is given', function(){
+        expect(function() { bankAccount.makeDeposit(-100) }).toThrowError('Error: amount must be positive');
+      });
+
     });
 
     describe('makeWithdrawal', function() {
@@ -45,17 +54,6 @@ describe('Feature Tests', function() {
       });
     });
 
-    describe('isNumberPositive',function(){
-      it('throws an error if a negative value is given', function(){
-        expect(function() { bankAccount.makeDeposit(-100) }).toThrowError('Error: amount must be positive');
-      });
-    });
-
-    describe('isInputANumber', function(){
-      it('throws an error if the input is NaN',function(){
-        expect(function() { bankAccount.makeDeposit('one hundred') }).toThrowError('Error: input must be a number');
-      });
-    });
 
   });
 
