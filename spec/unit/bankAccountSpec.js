@@ -26,15 +26,15 @@ describe('Bank Account Unit Tests', function() {
   describe('printStatement', function() {
     it('prints the statement', function() {
       bankAccount.transaction =
-      [[`${date}`,1000,'',1000],
-      [`${date}`,2000,'',3000],
-      [`${date}`,'',500,2500]];
+        [{date: `${date}`, credit: 1000, debit: '', balance: 1000},
+        {date: `${date}`, credit: 2000, debit: '', balance: 3000},
+        {date: `${date}`, credit: '', debit: 500, balance: 2500}];
         expect(bankAccount.printStatement()).
           toEqual(
             'date || credit || debit || balance\n' +
-            `${date}` + ' ||  || 500.00 || 2500.00 \n' +
-            `${date}` + ' || 2000.00 ||  || 3000.00 \n' +
-            `${date}` + ' || 1000.00 ||  || 1000.00 ');
+            `${date}` + ' ||  || 500.00 || 2500.00\n' +
+            `${date}` + ' || 2000.00 ||  || 3000.00\n' +
+            `${date}` + ' || 1000.00 ||  || 1000.00');
 
     });
   });

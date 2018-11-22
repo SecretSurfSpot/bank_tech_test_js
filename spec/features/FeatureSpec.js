@@ -39,18 +39,18 @@ describe('Feature Tests', function() {
         bankAccount.makeDeposit(1000);
         bankAccount.makeDeposit(2000);
         expect(bankAccount.transaction.length).toEqual(2);
-        expect(bankAccount.transaction[0].length).toEqual(4);
-        expect(bankAccount.transaction[1].length).toEqual(4);
-        expect(bankAccount.transaction[1]).toEqual([`${date}`,2000,'',3000]);
+        expect(bankAccount.transaction[0].credit).toEqual(1000);
+        expect(bankAccount.transaction[1].credit).toEqual(2000);
+        expect(bankAccount.transaction[1]).toEqual({date: `${date}`,credit: 2000, debit: '', balance: 3000});
       });
 
       it('is written to by makeWithdrawal', function(){
           bankAccount.makeDeposit(1000);
           bankAccount.makeWithdrawal(500);
           expect(bankAccount.transaction.length).toEqual(2);
-          expect(bankAccount.transaction[0].length).toEqual(4);
-          expect(bankAccount.transaction[1].length).toEqual(4);
-          expect(bankAccount.transaction[1]).toEqual([`${date}`,'',500,500]);
+          expect(bankAccount.transaction[0].credit).toEqual(1000);
+          expect(bankAccount.transaction[1].debit).toEqual(500);
+          expect(bankAccount.transaction[1]).toEqual({date: `${date}`,credit: '', debit: 500, balance: 500});
       });
     });
 
@@ -73,9 +73,9 @@ describe('Feature Tests', function() {
         expect(bankAccount.printStatement()).
           toEqual(
             'date || credit || debit || balance\n' +
-            `${date}` + ' ||  || 500.00 || 2500.00 \n' +
-            `${date}` + ' || 2000.00 ||  || 3000.00 \n' +
-            `${date}` + ' || 1000.00 ||  || 1000.00 ');
+            `${date}` + ' ||  || 500.00 || 2500.00\n' +
+            `${date}` + ' || 2000.00 ||  || 3000.00\n' +
+            `${date}` + ' || 1000.00 ||  || 1000.00');
       });
     });
 

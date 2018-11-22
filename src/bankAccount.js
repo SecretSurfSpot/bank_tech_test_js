@@ -13,23 +13,33 @@
     this._isInputANumber(amount);
     this._isNumberPositive(amount);
     this.balance += amount;
-    this._addTransaction(amount, '', this.balance);
+    // this._addTransaction(amount, '', this.balance);
+    this._addTransaction({credited: amount, debited: ''});
   };
 
   BankAccount.prototype.makeWithdrawal = function (amount) {
     this._isInputANumber(amount);
     this._isNumberPositive(amount);
     this.balance -= amount;
-    this._addTransaction('', amount, this.balance);
+    // this._addTransaction('', amount, this.balance);
+    this._addTransaction({debited: amount, credited: ''});
   };
 
   BankAccount.prototype.printStatement = function () {
+    // return this.printer.printStatement(this.transaction);
     return this.printer.printStatement(this.transaction);
   };
 
-  BankAccount.prototype._addTransaction = function (credit, debit, balance) {
+  // BankAccount.prototype._addTransaction = function (credit, debit, balance) {
+  BankAccount.prototype._addTransaction = function (transactionDetails) {
     this.date = this._getFormattedDate();
-    this.transaction.push([this.date, credit, debit, balance]);
+    // this.transaction.push([this.date, credit, debit, balance]);
+    this.transaction.push({
+      date: this.date,
+      credit: transactionDetails.credited,
+      debit: transactionDetails.debited,
+      balance: this.balance
+    });
   };
 
   BankAccount.prototype._isInputANumber = function (amount) {
