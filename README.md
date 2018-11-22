@@ -76,7 +76,7 @@ Two main objects (constructor functions):
 ╔═════════════╗
 ║             ║ public function:  printStatement
 ║   Printer   ║                  
-║(constructor)║ private function: statementHeader
+║(constructor)║ private functions: _statementHeader & _reverseArray
 ╚═════════════╝            
 
 ```
