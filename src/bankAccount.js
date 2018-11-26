@@ -2,10 +2,10 @@
 
 (function(exports) {
 
-  function BankAccount(balance = 0, transaction = [], printer = new Printer, date = '') {
+  function BankAccount(printer = new Printer, balance = 0, transaction = [], date = '') {
+    this.printer = printer;
     this.balance = balance;
     this.transaction = transaction;
-    this.printer = printer;
     this.date = date;
   }
 

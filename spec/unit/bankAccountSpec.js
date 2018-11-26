@@ -5,7 +5,7 @@ describe('Bank Account Unit Tests', function() {
   var date  = new Date().toLocaleDateString('en-GB');
 
   beforeEach(function(){
-   bankAccount = new BankAccount();
+    bankAccount = new BankAccount();
   });
 
   describe('makeDeposit', function() {
@@ -24,18 +24,12 @@ describe('Bank Account Unit Tests', function() {
   });
 
   describe('printStatement', function() {
-    it('prints the statement', function() {
-      bankAccount.transaction =
-        [{date: `${date}`, credit: 1000, debit: '', balance: 1000},
-        {date: `${date}`, credit: 2000, debit: '', balance: 3000},
-        {date: `${date}`, credit: '', debit: 500, balance: 2500}];
-        expect(bankAccount.printStatement()).
-          toEqual(
-            'date || credit || debit || balance\n' +
-            `${date}` + ' ||  || 500.00 || 2500.00\n' +
-            `${date}` + ' || 2000.00 ||  || 3000.00\n' +
-            `${date}` + ' || 1000.00 ||  || 1000.00');
-
+    it('executes and makes a call to the (mock) Printer.printStatement function', function() {
+      let mockPrinter = { printStatement: function(transaction) {return transaction}}
+      bankAccount = new BankAccount(mockPrinter);
+      expect(bankAccount.printStatement()).toEqual([]);
+      console.log("test ran");
+      console.log(`mockPrinter._statementHeader is: ${mockPrinter.printStatement()}`)
     });
   });
 
