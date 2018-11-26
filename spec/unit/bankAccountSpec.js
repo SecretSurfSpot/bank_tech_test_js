@@ -28,8 +28,6 @@ describe('Bank Account Unit Tests', function() {
       let mockPrinter = { printStatement: function(transaction) {return transaction}}
       bankAccount = new BankAccount(mockPrinter);
       expect(bankAccount.printStatement()).toEqual([]);
-      console.log("test ran");
-      console.log(`mockPrinter._statementHeader is: ${mockPrinter.printStatement()}`)
     });
   });
 
