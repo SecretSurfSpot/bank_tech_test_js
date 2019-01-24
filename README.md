@@ -22,7 +22,7 @@ date || credit || debit || balance <br />
 13/01/2012 || 2000.00 || || 3000.00 <br />
 10/01/2012 || 1000.00 || || 1000.00 <br />
 
-## The Application (bank_tech_test)
+## The Application
 
 The project can be found here:
 https://github.com/SecretSurfSpot/bank_tech_test_js
@@ -42,7 +42,7 @@ To test the application:
 - `Bank_Acc.makeWithdrawal(500);` *withdraws £500*
 - `Bank_Acc.printStatement` *prints a bank statement, as per the format shown in the Acceptance Criteria section (and screenshot below)*
 
-The above commands result in the output shown in the screenshot below:
+The above commands result in the output below:
 
 ![Chrome Console Screenshot](https://github.com/SecretSurfSpot/bank_tech_test_js/blob/master/images/Screen%20Shot%202018-11-15%20at%2014.58.34.png)
 
@@ -53,7 +53,7 @@ The model below illustrates the high-level structure of the application.
 Two main objects (constructor functions):
 
 1. **BankAccount:** Takes inputs for both deposit and withdrawal amounts, keeps track of the balance and also maintains the transaction log
-2. **Printer:** Takes the transactions as input (from the BankAccount constructor function's function: BankAccount.printStatement()), formats it then prints it
+2. **Printer:** Takes the transactions as input (from the BankAccount constructor function's function: BankAccount.printStatement()), formats the statement and then prints it
 
 ```
     User
